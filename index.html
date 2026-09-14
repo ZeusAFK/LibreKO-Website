@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LibreKO</title>
+<meta name="description" content="A from-scratch reimplementation of the Knight Online client and server — Godot 4 client, C# server.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230B0C0E'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23C9A227' text-anchor='middle'>L</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+<header class="header wrap">
+  <a class="wordmark" href="#top">LibreKO</a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Knight Online,<br>rebuilt in the open</h1>
+        <p class="lede">A from-scratch reimplementation of the client and the server</p>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/vSkYeb2yppw"
+                title="LibreKO gameplay"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="tech">
+    <h2 class="section-title">The stack</h2>
+    <div class="cards">
+
+      <article class="card card-client">
+        <p class="kicker">CLIENT</p>
+        <h3>Godot 4.7.2 · C#</h3>
+        <dl class="spec">
+          <dt>Runtime</dt><dd>.NET 9, Forward+ renderer</dd>
+          <dt>Layers</dt><dd class="mono">Network · Domain · World · Rig · Fx · Ui · Terrain · Sky · Audio</dd>
+          <dt>Packs</dt><dd>Core .pck plus per-content side packs mounted at startup</dd>
+          <dt>Targets</dt><dd>Windows today; Android arm64 in progress</dd>
+        </dl>
+      </article>
+
+      <article class="card card-server">
+        <p class="kicker">SERVER</p>
+        <h3>C# · .NET 10</h3>
+        <dl class="spec">
+          <dt>Services</dt><dd class="mono">Login · Game · Common · Quests</dd>
+          <dt>Data</dt><dd>EF Core over MySQL (Pomelo), Serilog, Sentry</dd>
+          <dt>Scripting</dt><dd>A custom .quest DSL — compiler, CLI and language server</dd>
+          <dt>Protocol</dt><dd>Retail-accurate TCP, one typed writer per packet family</dd>
+        </dl>
+      </article>
+
+      <article class="card card-pipeline">
+        <p class="kicker">PIPELINE</p>
+        <h3>Offline · Python</h3>
+        <p class="card-copy">Decodes the retail formats and emits Godot-native resources. The runtime never parses a retail file.</p>
+        <ul class="formats">
+          <li><b>.n3chr / .n3pmesh</b> — meshes</li>
+          <li><b>.dxt</b> — encrypted textures</li>
+          <li><b>.gtd / .gtt</b> — terrain</li>
+          <li><b>.opd</b> — object placement</li>
+          <li><b>.tbl</b> — data tables</li>
+          <li><b>.fxb</b> — effects</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="wrap get" id="get">
+    <article class="panel panel-gold">
+      <h2>Launcher</h2>
+      <p>Connects to the online test server, and keeps itself patched in place.</p>
+      <a class="btn btn-gold btn-block" href="#">Download launcher</a>
+      <p class="meta">sha256 9f41c2…a7de · signed</p>
+    </article>
+    <article class="panel">
+      <h2>Local server</h2>
+      <p class="dim">The Login and Game services run against a local MySQL and listen on loopback. Setup lives in each repo's README.</p>
+      <p class="clone">
+        <code>git clone https://github.com/ZeusAFK/LibreKO.git</code>
+        <button class="copy" type="button" data-copy="git clone https://github.com/ZeusAFK/LibreKO.git">COPY</button>
+      </p>
+    </article>
+  </section>
+
+  <section class="wrap" id="repos">
+    <h2 class="section-title">Repositories</h2>
+    <div class="table">
+      <div class="tr th">
+        <span>REPO</span><span>WHAT IT IS</span><span>LANGUAGE</span><span>LICENCE</span>
+      </div>
+      <div class="tr">
+        <a class="mono" href="https://github.com/ZeusAFK/LibreKO">LibreKO</a>
+        <span class="dim">Godot 4 client and the C# server — rigs, effects, full retail UI</span>
+        <span class="mono dim">C# · Godot</span>
+        <span class="mono gold">AGPL-3.0</span>
+      </div>
+      <div class="tr">
+        <a class="mono" href="https://github.com/ZeusAFK/LibreKO-Assets">LibreKO-Assets</a>
+        <span class="dim">Offline asset and data decoder — retail formats to Godot-native</span>
+        <span class="mono dim">Python</span>
+        <span class="mono gold">AGPL-3.0</span>
+      </div>
+      <div class="tr">
+        <a class="mono" href="https://github.com/ZeusAFK/LibreKO-vscode">LibreKO-vscode</a>
+        <span class="dim">.quest language support — compiler, CLI and language server</span>
+        <span class="mono dim">C#</span>
+        <span class="mono gold">AGPL-3.0</span>
+      </div>
+      <div class="tr">
+        <a class="mono" href="https://github.com/ZeusAFK/LibreKO-Website">LibreKO-Website</a>
+        <span class="dim">This site</span>
+        <span class="mono dim">HTML · CSS</span>
+        <span class="mono gold">AGPL-3.0</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="licence" id="licence">
+    <div class="wrap licence-grid">
+      <div class="panel panel-raised">
+        <h2 class="gold">AGPL-3.0, all of it</h2>
+        <div class="licence-cols">
+          <div>
+            <p>Client, server, pipeline and tooling. Use it, study it, modify it, redistribute it — a modified client or server you distribute ships its source under AGPL-3.0 too.</p>
+            <p>The network clause matters: run a modified server other people connect to and those users are entitled to your source. Running it privately triggers nothing.</p>
+          </div>
+          <div>
+            <p>The licence covers this project's code only. It says nothing about the original game's assets or data — those are not ours to license, and we distribute none of them.</p>
+            <p class="meta">Full text:</p>
+            <p><a href="https://github.com/ZeusAFK/LibreKO/blob/main/LICENSE">github.com/ZeusAFK/LibreKO/LICENSE</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Contribute</h2>
+        <p class="dim">Help is wanted on quest content, testing, art tooling and protocol coverage.</p>
+        <div class="links">
+          <a href="https://github.com/ZeusAFK">github.com/ZeusAFK <span class="muted">↗</span></a>
+          <a href="https://discord.gg/SU9pZssS5">discord <span class="muted">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-legal">Not affiliated with, endorsed by or connected to NTT Game, Noah System or any official operator. Knight Online and all related marks are the property of their respective owners.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      btn.textContent = 'COPIED';
+      setTimeout(() => (btn.textContent = 'COPY'), 1500);
+    });
+  });
+</script>
+
+</body>
+</html>
