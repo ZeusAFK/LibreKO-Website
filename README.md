@@ -21,7 +21,7 @@ Deploy by copying both files to any static host.
 - **Design tokens** (colour, type, spacing) are CSS custom properties at the top of `styles.css`.
 - **Repository links** are the `#repos` table in `index.html`; the clone and Docker commands sit in
   the `#get` section, each with a `data-copy` attribute that the copy button reads.
-- **The launcher panel** in `#get` is a placeholder until a signed launcher build exists.
+- **The test client download** is the button in `#get`; update its `href` when a new build is uploaded.
 - **Fonts** come from Google Fonts. Self-host them if you would rather the site made no third-party
   requests.
 
