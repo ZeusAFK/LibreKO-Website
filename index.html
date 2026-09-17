@@ -55,9 +55,10 @@
         <h3>C# · .NET 10</h3>
         <dl class="spec">
           <dt>Services</dt><dd class="mono">Login · Game · Common · Quests</dd>
-          <dt>Data</dt><dd>EF Core over MySQL (Pomelo), Serilog, Sentry</dd>
+          <dt>Data</dt><dd>EF Core over MariaDB or MySQL (Pomelo), Serilog, Sentry</dd>
           <dt>Scripting</dt><dd>A custom .quest DSL — compiler, CLI and language server</dd>
           <dt>Protocol</dt><dd>Retail-accurate TCP, one typed writer per packet family</dd>
+          <dt>Deploy</dt><dd>Docker Compose stack: MariaDB, Login and Game</dd>
         </dl>
       </article>
 
@@ -87,10 +88,14 @@
     </article>
     <article class="panel">
       <h2>Local server</h2>
-      <p class="dim">The Login and Game services run against a local MySQL and listen on loopback. Setup lives in each repo's README.</p>
+      <p class="dim">The Login and Game services run against a local MariaDB and listen on loopback, or start the whole stack with Docker. Setup lives in the repo's README; the client bakes its content from your own game install with LibreKO-Assets.</p>
       <p class="clone">
         <code>git clone https://github.com/ZeusAFK/LibreKO.git</code>
         <button class="copy" type="button" data-copy="git clone https://github.com/ZeusAFK/LibreKO.git">COPY</button>
+      </p>
+      <p class="clone">
+        <code>cd LibreKO &amp;&amp; docker compose up</code>
+        <button class="copy" type="button" data-copy="cd LibreKO && docker compose up">COPY</button>
       </p>
     </article>
   </section>
@@ -103,20 +108,20 @@
       </div>
       <div class="tr">
         <a class="mono" href="https://github.com/ZeusAFK/LibreKO">LibreKO</a>
-        <span class="dim">Godot 4 client and the C# server — rigs, effects, full retail UI</span>
+        <span class="dim">Godot 4 client and the .NET server — Login, Game, the .quest compiler and a Docker Compose stack</span>
         <span class="mono dim">C# · Godot</span>
         <span class="mono gold">AGPL-3.0</span>
       </div>
       <div class="tr">
         <a class="mono" href="https://github.com/ZeusAFK/LibreKO-Assets">LibreKO-Assets</a>
-        <span class="dim">Offline asset and data decoder — retail formats to Godot-native</span>
+        <span class="dim">Offline asset and data decoder — your own game install to Godot-native resources</span>
         <span class="mono dim">Python</span>
         <span class="mono gold">AGPL-3.0</span>
       </div>
       <div class="tr">
         <a class="mono" href="https://github.com/ZeusAFK/LibreKO-vscode">LibreKO-vscode</a>
-        <span class="dim">.quest language support — compiler, CLI and language server</span>
-        <span class="mono dim">C#</span>
+        <span class="dim">VS Code extension for .quest scripts — grammar, semantic tokens, ids shown as names</span>
+        <span class="mono dim">JavaScript</span>
         <span class="mono gold">AGPL-3.0</span>
       </div>
       <div class="tr">

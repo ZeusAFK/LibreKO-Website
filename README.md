@@ -19,9 +19,9 @@ Deploy by copying both files to any static host.
 ## Editing
 
 - **Design tokens** (colour, type, spacing) are CSS custom properties at the top of `styles.css`.
-- **Version and build numbers** appear in the hero pill and the footer of `index.html`.
-- **Screenshots** replace the `.slot` placeholders — swap each `<div class="slot">` for an `<img>`;
-  the surrounding `<figure>` and caption already carry the framing.
+- **Repository links** are the `#repos` table in `index.html`; the clone and Docker commands sit in
+  the `#get` section, each with a `data-copy` attribute that the copy button reads.
+- **The launcher panel** in `#get` is a placeholder until a signed launcher build exists.
 - **Fonts** come from Google Fonts. Self-host them if you would rather the site made no third-party
   requests.
 
